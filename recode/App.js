@@ -13,7 +13,7 @@ export default function App() {
     try {
       const { status } = await Notifications.requestPermissionsAsync();
       if (status === 'granted') {
-        // Replace 'YOUR_EXPO_PROJECT_ID' with your actual Expo project ID
+
         const tokenData = await Notifications.getExpoPushTokenAsync({
           projectId: 'bdcfb329-35a9-4436-b06d-9fa5259782a8',
         });
@@ -21,7 +21,6 @@ export default function App() {
 
         console.log('Expo Push Token:', expoPushToken);
 
-        // Send the expoPushToken to your server for later use
         sendExpoPushTokenToServer(expoPushToken);
       } else {
         Alert.alert('Permission denied', 'You need to enable push notifications in settings.');
@@ -33,7 +32,7 @@ export default function App() {
 
   const sendExpoPushTokenToServer = async (expoPushToken) => {
     try {
-      const response = await fetch('https://27f7-61-8-208-219.ngrok.io/send-notification', {
+      const response = await fetch('https://27f7-61-8-208-219.ngrok.io/send-notification', { // Important to replace the ngrok URL!
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,12 +52,8 @@ export default function App() {
   };
 
   const handleNotification = (notification) => {
-    // Handle the in-app notification when the app is in the foreground
-    // For example, display a custom component with the notification data
     console.log('Received in-app notification:', notification);
-    // You can customize the in-app notification appearance here
 
-    // Display a custom alert for demonstration purposes
     Alert.alert(notification.request.content.title, notification.request.content.body);
   };
 
