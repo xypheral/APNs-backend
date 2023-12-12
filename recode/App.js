@@ -32,7 +32,7 @@ export default function App() {
 
   const sendExpoPushTokenToServer = async (expoPushToken) => {
     try {
-      const response = await fetch('https://8f63-61-8-208-219.ngrok.io/send-notification', { // Important to replace the ngrok URL! "ngrokURL/send-notification"
+      const response = await fetch('https://4469-61-8-208-219.ngrok.io/send-notification', { // Important to replace the ngrok URL! "ngrokURL/send-notification"
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

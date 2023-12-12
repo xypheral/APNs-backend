@@ -23,3 +23,11 @@ curl -X POST \
     "body": "Please evacute immediately!"
   }' \
   http://localhost:3000/send-notification
+
+
+  external 
+  curl -H "Content-Type: application/json" -X POST "https://exp.host/--/api/v2/push/send" -d '{
+  "to": "ExponentPushToken[70iRCDCPh0hGI3zarMCRjq]",
+  "title":"hello",
+  "body": "world"
+}'
